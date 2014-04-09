@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CreditCardPaymentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityType Name="CardDetails">
+          <Key>
+            <PropertyRef Name="card_num" />
+          </Key>
+          <Property Name="card_num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cvv" Type="int" Nullable="false" />
+          <Property Name="expiration_dt" Type="datetime" Nullable="false" />
+          <Property Name="card_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="addrress1" Type="varchar" MaxLength="150" />
+          <Property Name="addrress2" Type="varchar" MaxLength="150" />
+          <Property Name="email" Type="varchar" MaxLength="150" />
+          <Property Name="country" Type="varchar" MaxLength="150" />
+          <Property Name="card_type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trans">
+          <Key>
+            <PropertyRef Name="trans_num" />
+          </Key>
+          <Property Name="trans_num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trans_amt" Type="int" Nullable="false" />
+          <Property Name="trans_dt" Type="datetime" Nullable="false" />
+          <Property Name="card_num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_message" Type="text" Nullable="false" />
+          <Property Name="acc_num" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CreditCardPaymentModelStoreContainer">
+          <EntitySet Name="CardDetails" EntityType="Self.CardDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trans" EntityType="Self.Trans" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CreditCardPaymentModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityType Name="CardDetail">
+          <Key>
+            <PropertyRef Name="card_num" />
+          </Key>
+          <Property Name="card_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cvv" Type="Int32" Nullable="false" />
+          <Property Name="expiration_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="card_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addrress1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="addrress2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="card_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tran">
+          <Key>
+            <PropertyRef Name="trans_num" />
+          </Key>
+          <Property Name="trans_num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trans_amt" Type="Int32" Nullable="false" />
+          <Property Name="trans_dt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="card_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acc_num" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CreditCardPaymentEntities">
+          <EntitySet Name="CardDetails" EntityType="Self.CardDetail" />
+          <EntitySet Name="Trans" EntityType="Self.Tran" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="CreditCardPaymentModelStoreContainer" CdmEntityContainer="CreditCardPaymentEntities">
+          <EntitySetMapping Name="CardDetails">
+            <EntityTypeMapping TypeName="CreditCardPaymentModel.CardDetail">
+              <MappingFragment StoreEntitySet="CardDetails">
+                <ScalarProperty Name="card_num" ColumnName="card_num" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="cvv" ColumnName="cvv" />
+                <ScalarProperty Name="expiration_dt" ColumnName="expiration_dt" />
+                <ScalarProperty Name="card_name" ColumnName="card_name" />
+                <ScalarProperty Name="addrress1" ColumnName="addrress1" />
+                <ScalarProperty Name="addrress2" ColumnName="addrress2" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="card_type" ColumnName="card_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trans">
+            <EntityTypeMapping TypeName="CreditCardPaymentModel.Tran">
+              <MappingFragment StoreEntitySet="Trans">
+                <ScalarProperty Name="trans_num" ColumnName="trans_num" />
+                <ScalarProperty Name="trans_amt" ColumnName="trans_amt" />
+                <ScalarProperty Name="trans_dt" ColumnName="trans_dt" />
+                <ScalarProperty Name="card_num" ColumnName="card_num" />
+                <ScalarProperty Name="email_message" ColumnName="email_message" />
+                <ScalarProperty Name="acc_num" ColumnName="acc_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
