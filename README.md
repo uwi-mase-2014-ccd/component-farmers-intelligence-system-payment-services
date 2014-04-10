@@ -16,7 +16,7 @@ Arguments:
 -	name: The name of the cardholder
 -	add1 : The first line of the cardholder's address
 -	add2: The second line of the cardholder's address
--	country: The country the card was registered?? 
+-	country: The country the card was registered
 -	email: The email address of the cardholder
 -	account: The account to which the money is being paid
 -	cardtype: The type of credit card e.g. Visa, Discover
