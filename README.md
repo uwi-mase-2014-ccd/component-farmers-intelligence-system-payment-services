@@ -23,15 +23,15 @@ Arguments:
 
 Sample Input:
 {
-"cardnum": "4111111111111111"
-"amount": "5000",
-"cvv": "100",
-"expdate": "06/31/2017",
-"name": "John Doe",
-"add1": "123 Imaginary View",
-"add2": "Imaginary Land",
-"country": "jamaica",
-"email": "johndoe@yahoo.com",
-"account": "0123456789",
-"cardtype": "Visa"
+      "cardnum": "4111111111111111",
+      "amount": "5000",
+      "cvv": "100",
+      "expdate": "06/31/2017",
+      "name": "John Doe",
+      "add1": "123 Imaginary View",
+      "add2": "Imaginary Land",
+      "country": "jamaica",
+      "email": "johndoe@yahoo.com",
+      "account": "0123456789",
+      "cardtype": "Visa"
 }
