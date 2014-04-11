@@ -1,6 +1,10 @@
 component-farmers-intelligence-system-payment-services
 ======================================================
 
+
+http://www.sewebservice.somee.com/Payment/CardPayment.asmx
+
+
 Payment Services
 Description:
 
