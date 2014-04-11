@@ -41,3 +41,5 @@ Sample Input:
       "account": "0123456789",
       "cardtype": "Visa"
 }
+
+Once valid information has been entered it will randomly assign a amount limit to the card and store the cvv number, as well as the card number. Any attempts made afterwards with that same card number will require the cvv number in its first use and it will minus the attempted amount from the random card limit until it has been maxed out.
